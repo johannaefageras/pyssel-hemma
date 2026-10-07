@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="sv">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="text-scale" content="scale" />
+		<meta name="color-scheme" content="light dark" />
+		<link
+			rel="preload"
+			href="%sveltekit.assets%/fonts/F37GingerSoft-VF.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="%sveltekit.assets%/fonts/F37GingerMonoSoft-VF.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/mascot/pyssel-yellow.svg" />
+		<script>
+			// Set the theme before first paint so dark mode never flashes light.
+			// Same storage key as src/lib/theme.ts.
+			(() => {
+				let saved;
+				try {
+					saved = localStorage.getItem('pyssel-hemma-theme');
+				} catch {}
+				document.documentElement.dataset.theme =
+					saved === 'light' || saved === 'dark'
+						? saved
+						: matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light';
+			})();
+		</script>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>

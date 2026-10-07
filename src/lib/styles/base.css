@@ -1,0 +1,167 @@
+/* Page basics and the few global utilities. Everything else is scoped to its component. */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: var(--font-body);
+	font-size: 16px;
+	color: var(--ink);
+	background: var(--paper);
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+}
+
+button,
+a,
+input {
+	-webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+button:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+a {
+	color: inherit;
+}
+
+img {
+	display: block;
+}
+
+h1,
+h2,
+h3,
+p {
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+:focus-visible {
+	outline: 3px solid var(--focus);
+	outline-offset: 4px;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+/* ── Headlines ────────────────────────────────────────────────────────────
+ * Pyssel sets its English headline at line-height 1.01 and -0.065em. Swedish
+ * needs more air: at those values the dots on Å Ä Ö hit the descenders above
+ * and the word space closes up.
+ */
+.display {
+	font-size: var(--text-display);
+	font-weight: 700;
+	line-height: 1.14;
+	letter-spacing: -0.055em;
+	word-spacing: 0.1em;
+}
+
+/* The marker stroke. Wrap the words to underline in <span class="marker">. */
+.marker {
+	background: linear-gradient(
+		transparent 66%,
+		var(--highlight) 66%,
+		var(--highlight) 94%,
+		transparent 94%
+	);
+	padding-right: 8px;
+}
+
+.title {
+	font-size: var(--text-lg);
+	font-weight: 700;
+	line-height: 1.1;
+	letter-spacing: -0.045em;
+}
+
+/* ── Mono labels ──────────────────────────────────────────────────────────
+ * Avoid a lone lowercase l in the mono face (it reads as 1): write "2 liter".
+ */
+.eyebrow {
+	font-family: var(--font-label);
+	font-size: var(--text-xs);
+	font-weight: 800;
+	letter-spacing: 0.09em;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.meta {
+	font-family: var(--font-label);
+	font-size: var(--text-xs);
+	line-height: 1.25;
+	color: var(--muted);
+}
+
+.muted {
+	color: var(--muted);
+}
+
+/* A line of text saying something did not work. */
+.error {
+	color: var(--danger);
+	font-size: var(--text-sm);
+	line-height: 1.4;
+}
+
+/* Underlined mono link, for quiet actions on both <a> and <button>. */
+.text-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	min-width: var(--tap);
+	min-height: var(--tap);
+	padding: 10px 0;
+	border: 0;
+	background: none;
+	font-family: var(--font-label);
+	font-size: var(--text-sm);
+	font-weight: 600;
+	line-height: 1;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		scroll-behavior: auto !important;
+		transition: none !important;
+	}
+}

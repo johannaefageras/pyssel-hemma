@@ -1,0 +1,20 @@
+/*
+ * F37 Ginger is a commercial typeface. The files in static/fonts are copied from
+ * the pyssel project; check that the web licence covers this site's domain too.
+ */
+
+@font-face {
+	font-family: 'F37 Ginger Soft';
+	src: url('/fonts/F37GingerSoft-VF.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'F37 Ginger Mono Soft';
+	src: url('/fonts/F37GingerMonoSoft-VF.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+}

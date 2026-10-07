@@ -1,0 +1,138 @@
+/*
+ * Pyssel tokens.
+ *
+ * Ported from pyssel/src/styles/main.css (roles) and pyssel/public/collection.json
+ * (the 32-colour palette). Every value is HSL and resolves to the exact hex in its
+ * comment, so the two projects stay visually identical.
+ */
+
+:root {
+	/* ── Type ─────────────────────────────────────────────────────────────── */
+	--font-body: 'F37 Ginger Soft', Arial, sans-serif;
+	--font-label: 'F37 Ginger Mono Soft', 'Courier New', monospace;
+
+	--text-2xs: 0.625rem; /* 10px, sticker tags */
+	--text-xs: 0.75rem; /* 12px, eyebrows, chips, tile labels */
+	--text-sm: 0.875rem; /* 14px, buttons, links */
+	--text-md: 1rem; /* 16px, body and inputs */
+	--text-lg: 1.125rem; /* 18px, card titles */
+	--text-xl: 1.3125rem; /* 21px, wordmark and app-bar title */
+	--text-display: 2.25rem; /* 36px, the home headline */
+
+	/* ── Shape ────────────────────────────────────────────────────────────── */
+	/* The slightly crooked corners are the hand-drawn part. Keep the four values. */
+	--radius-button: 7px 9px 6px 8px;
+	--radius-card: 8px 11px 8px 9px;
+	--radius-chip: 4px;
+	--radius-dialog: 12px;
+
+	--gutter: 20px;
+	--tap: 44px; /* minimum touch target */
+
+	/* ── Palette: 10 hues × shade / base / light, plus black and white ───── */
+	--red-shade: hsl(0 62.4% 33.3%); /* #8a2020 */
+	--red: hsl(0 52.8% 48.2%); /* #bc3a3a */
+	--red-light: hsl(2.3 63.1% 67.1%); /* #e07a76 */
+	--orange-shade: hsl(28.9 83.6% 42.9%); /* #c96a12 */
+	--orange: hsl(32.6 90.9% 57.1%); /* #f59a2e */
+	--orange-light: hsl(35.4 100% 75.1%); /* #ffcb80 */
+	--yellow-shade: hsl(43.2 89.1% 43.3%); /* #d19a0c */
+	--yellow: hsl(45.6 100% 53.5%); /* #ffc612 */
+	--yellow-light: hsl(46 100% 77%); /* #ffe48a */
+	--green-shade: hsl(95 59.6% 37.8%); /* #579a27 */
+	--green: hsl(95.4 56.3% 53.3%); /* #7ccb45 */
+	--green-light: hsl(92.7 62% 72.2%); /* #b4e48c */
+	--blue-shade: hsl(207.3 87.5% 34.5%); /* #0b5fa5 */
+	--blue: hsl(201.7 90.5% 41.4%); /* #0a84c9 */
+	--blue-light: hsl(200 75.8% 62.7%); /* #58b8e8 */
+	--purple-shade: hsl(263.5 52% 43.3%); /* #6235a8 */
+	--purple: hsl(261.7 49.3% 58.2%); /* #8660c9 */
+	--purple-light: hsl(259.1 58% 76.7%); /* #b7a1e6 */
+	--pink-shade: hsl(331.4 58.6% 43.5%); /* #b02e6c */
+	--pink: hsl(330.4 69% 60.8%); /* #e0569a */
+	--pink-light: hsl(332.6 78.6% 79.8%); /* #f4a3c8 */
+	--wood-shade: hsl(28.5 58.4% 39.6%); /* #a0622a */
+	--wood: hsl(30 52% 51.8%); /* #c48444 */
+	--wood-light: hsl(29.7 59.8% 66.9%); /* #ddaa78 */
+	--gray-shade: hsl(0 0% 54%); /* #8a8a8a */
+	--gray: hsl(0 0% 74%); /* #bdbdbd */
+	--gray-light: hsl(0 0% 90%); /* #e6e6e6 */
+	--dark-gray-shade: hsl(0 0% 17%); /* #2b2b2b */
+	--dark-gray: hsl(0 0% 29%); /* #4a4a4a */
+	--dark-gray-light: hsl(0 0% 43%); /* #6e6e6e */
+	--black: hsl(0 0% 0%); /* #000000 */
+	--white: hsl(0 0% 100%); /* #ffffff */
+
+	/* ── Roles, light theme ───────────────────────────────────────────────── */
+	--ink: hsl(0 0% 8.2%); /* #151515 */
+	--paper: hsl(0 0% 100%); /* #ffffff, the page */
+	--surface: hsl(0 0% 100%); /* #ffffff, cards and inputs */
+	--well: hsl(0 0% 97.3%); /* #f8f8f8, sunken panels */
+	--hover: hsl(0 0% 96.5%); /* #f6f6f6 */
+	--rule: hsl(0 0% 91%); /* #e8e8e8, hairlines between rows */
+	--line: hsl(0 0% 87%); /* #dedede, quiet card borders */
+	--control: hsl(0 0% 64.7%); /* #a5a5a5, input and checkbox borders */
+	--ink-soft: hsl(0 0% 33.3%); /* #555555 */
+	--muted: hsl(0 0% 40.8%); /* #686868, 5.6:1 on paper, safe for small text */
+	--subtle: hsl(0 0% 46.7%); /* #777777, 4.5:1 on paper, large text only */
+	--faint: hsl(0 0% 53.3%); /* #888888, decoration only */
+
+	--accent: var(--yellow);
+	--on-accent: hsl(0 0% 8.2%); /* #151515 in both themes */
+	--highlight: var(--yellow); /* the marker stroke under headlines */
+	--focus: var(--blue);
+
+	/*
+	 * State colours. Contrast on paper is noted because not all of them carry text.
+	 * --danger  5.5:1  safe for text
+	 * --success 3.5:1  marks and fills only; put --on-accent text on top (5.3:1)
+	 * --warning 1.6:1  fills only; put --on-accent text on top (11.6:1)
+	 */
+	--danger: var(--red);
+	--success: var(--green-shade);
+	--warning: var(--yellow);
+
+	/* The primary button flips from ink to accent in the dark theme. */
+	--primary: var(--ink);
+	--on-primary: var(--paper);
+
+	/* ── Composite tokens ─────────────────────────────────────────────────── */
+	--border-ink: 2px solid var(--ink);
+	--border-quiet: 1.5px solid var(--line);
+	--border-control: 1.5px solid var(--control);
+	--rule-heavy: 3px solid var(--ink); /* masthead and bottom bar */
+
+	--shadow-button: 2px 3px 0 var(--ink);
+	--shadow-button-hover: 3px 4px 0 var(--ink);
+	--shadow-active: 3px 3px 0 var(--accent); /* the one card that needs you */
+	--shadow-dialog: 7px 7px 0 var(--accent);
+
+	color-scheme: light;
+}
+
+/* ── Roles, dark theme ──────────────────────────────────────────────────── */
+:root[data-theme='dark'] {
+	--ink: hsl(40 22% 92%); /* #efece6 */
+	--paper: hsl(0 0% 7%); /* #121212 */
+	--surface: hsl(0 0% 9.8%); /* #191919 */
+	--well: hsl(0 0% 9.8%); /* #191919 */
+	--hover: hsl(0 0% 13.3%); /* #222222 */
+	--rule: hsl(0 0% 16.5%); /* #2a2a2a */
+	--line: hsl(0 0% 22%); /* #383838 */
+	--control: hsl(0 0% 54%); /* #8a8a8a */
+	--ink-soft: hsl(0 0% 77%); /* #c4c4c4 */
+	--muted: hsl(0 0% 66%); /* #a8a8a8 */
+	--subtle: hsl(0 0% 60.4%); /* #9a9a9a */
+	--faint: hsl(0 0% 52%); /* #858585 */
+
+	--highlight: hsl(45 100% 30.6%); /* #9c7500 */
+	--focus: var(--blue-light);
+
+	--danger: var(--red-light); /* 6.4:1 on paper */
+	--success: var(--green); /* 9.4:1 on paper */
+
+	--primary: var(--accent);
+	--on-primary: var(--on-accent);
+
+	color-scheme: dark;
+}

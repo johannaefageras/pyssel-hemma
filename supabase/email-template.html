@@ -1,0 +1,23 @@
+<!--
+  The sign-in email. Paste everything below this comment into BOTH of these
+  templates in Supabase (Authentication, Emails):
+
+    Confirm sign up     sent the first time an address signs in
+    Magic link or OTP   sent every time after that
+
+  Suggested subject for both: Din kod till Pyssel Hemma
+
+  The link does not sign anyone in by itself. It opens the app's sign-in page
+  with the code filled in, and the member presses the button. That keeps it
+  working when a mail service opens links to scan them. It uses the project's
+  Site URL (Authentication, URL Configuration), so set that to the app's address.
+-->
+<h2>Pyssel Hemma</h2>
+<p>Din kod:</p>
+<p style="font-size: 28px; font-weight: bold; letter-spacing: 4px">{{ .Token }}</p>
+<p>
+	Skriv in den i appen, eller
+	<a href="{{ .SiteURL }}/login?email={{ .Email }}&kod={{ .Token }}">öppna sidan med koden ifylld</a
+	>.
+</p>
+<p>Koden gäller i en timme. Bad du inte om den kan du strunta i det här mejlet.</p>
