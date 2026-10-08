@@ -119,9 +119,12 @@
 </main>
 
 <style>
+	/* Fills the screen below the masthead, with the content in the middle of it. */
 	main {
 		display: flex;
+		flex: 1;
 		flex-direction: column;
+		justify-content: center;
 		gap: 16px;
 		padding: 26px var(--gutter) 24px;
 	}
